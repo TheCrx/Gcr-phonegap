@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+    <title>Panel Usuario</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+        body{background-color: #ecf0f1;}
+
+@media (min-width:768px){
+.container-1{width:15%;float:left;}
+.container-2{width:100%;float: left;}
+}
+
+@media (max-width:768px){
+.container-1{width:100%;}
+.container-2{width:100%;}
+}
+.container-1:after,
+.container-2:before,
+{
+  display: table;
+  content: " ";
+}
+.container-1:after,
+.container-2:after,
+{clear: both;}
+
+.container-1{display: none;}
+
+
+/*sidebar-toggle=============*/
+.sidebar-toggle:hover, .sidebar-toggle:focus {
+    color: #fff;
+    text-decoration: underline;
+}
+
+
+@media (min-width: 768px){
+
+#page-wrapper {
+
+    padding: 0 30px;
+    min-height: 1300px;
+    border-left: 1px solid #2c3e50;
+}
+}
+
+#page-wrapper {
+    padding: 0 15px;
+    border: none;
+
+}
+
+.date-picker{
+    border-color: #138871;
+    color: #fff;
+    background-color: #149077;
+    margin-top: -7px;
+    border-radius: 0px;
+    margin-right: -15px;
+}
+
+#page-wrapper .breadcrumb {
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    list-style: none;
+    background-color: #e0e7e8;
+    border-radius: 0px;
+
+}
+
+
+
+
+@media (min-width: 768px){
+.circle-tile {
+    margin-bottom: 30px;
+}
+}
+
+.circle-tile {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.circle-tile-heading {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto -40px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-radius: 100%;
+    color: #fff;
+    transition: all ease-in-out .3s;
+}
+
+/* -- Background Helper Classes */
+
+/* Use these to cuztomize the background color of a div. These are used along with tiles, or any other div you want to customize. */
+
+ .dark-blue {
+    background-color: #34495e;
+}
+
+.green {
+    background-color: #16a085;
+}
+
+.blue {
+    background-color: #2980b9;
+}
+
+.orange {
+    background-color: #f39c12;
+}
+
+.red {
+    background-color: #e74c3c;
+}
+
+.purple {
+    background-color: #8e44ad;
+}
+
+.dark-gray {
+    background-color: #7f8c8d;
+}
+
+.gray {
+    background-color: #95a5a6;
+}
+
+.light-gray {
+    background-color: #bdc3c7;
+}
+
+.yellow {
+    background-color: #f1c40f;
+}
+
+/* -- Text Color Helper Classes */
+
+ .text-dark-blue {
+    color: #34495e;
+}
+
+.text-green {
+    color: #16a085;
+}
+
+.text-blue {
+    color: #2980b9;
+}
+
+.text-orange {
+    color: #f39c12;
+}
+
+.text-red {
+    color: #e74c3c;
+}
+
+.text-purple {
+    color: #8e44ad;
+}
+
+.text-faded {
+    color: rgba(255,255,255,0.7);
+}
+
+
+
+.circle-tile-heading .fa {
+    line-height: 80px;
+}
+
+.circle-tile-content {
+    padding-top: 50px;
+}
+.circle-tile-description {
+    text-transform: uppercase;
+}
+
+.text-faded {
+    color: rgba(255,255,255,0.7);
+}
+
+.circle-tile-number {
+    padding: 5px 0 15px;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.circle-tile-footer {
+    display: block;
+    padding: 5px;
+    color: rgba(255,255,255,0.5);
+    background-color: rgba(0,0,0,0.1);
+    transition: all ease-in-out .3s;
+}
+
+.circle-tile-footer:hover {
+    text-decoration: none;
+    color: rgba(255,255,255,0.5);
+    background-color: rgba(0,0,0,0.2);
+}
+
+
+.morning {
+    background: url(https://lh3.googleusercontent.com/-1YbV7nsVnX8/WMugaq-6BEI/AAAAAAAADSg/0wPfQ84vMUcCle_SkgiUDOumUKscMaA8QCL0B/w530-d-h353-p-rw/widget-bg-morning.jpg) center bottom no-repeat;
+    background-size: cover;
+}
+
+.time-widget {
+    margin-top: 5px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 1.75em;
+}
+
+.time-widget-heading {
+    text-transform: uppercase;
+    font-size: .5em;
+    font-weight: 400;
+    color: #fff;
+}
+#datetime{color:#fff;}
+.tile-img {
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.9);
+}
+
+.tile {
+    margin-bottom: 15px;
+    padding: 15px;
+    overflow: hidden;
+    color: #fff;
+}
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+    <meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 	
+	<meta name="author">
+	<title>admin-template</title>
+	<script src="https://use.fontawesome.com/07b0ce5d10.js"></script>
+
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+        <!-- js -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    </head>
+
+
+<body>
+    
+ 
+                                  <!--=============================
+                                             NAVIGATION
+                                   =============================-->
+    
+<!--top nav start=======-->
+                                  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                                      <a class="navbar-brand" href="#">GCR.exe</a>
+                                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                                          <span class="navbar-toggler-icon"></span>
+                                      </button>
+
+                                      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                                          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                                              <li class="nav-item active">
+                                                  <a class="nav-link" href="#"><span class="sr-only"></span></a>
+                                              </li>
+                                          </ul>
+                                          <ul class="navbar-nav px-3">
+                                              <li class="nav-item text-nowrap">
+                                                  <a class="nav-link" href="/logout">Sign out</a>
+                                              </li>
+                                          </ul>
+                                      </div>
+                                  </nav>
+<!--    top nav end===========-->
+    <div class="container-2">
+     <div id="page-wrapper">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="page-title">
+                <h2>Dashboard Alumno</h2>
+        <ol class="breadcrumb">
+          <li class="pull-right">
+           <div id="reportrange" class="btn btn-green btn-square date-picker">
+            <i class="fa fa-calendar"></i>
+             <span class="date-range">
+                    aca deberia mostrar la fecha pero nose como OwO
+             </span>
+           </div>
+          </li>
+        </ol>
+       </div>
+      </div>
+     </div>
+        <div class="row" >
+
+                    <div class="col-lg-2 col-sm-6">
+                        <div class="circle-tile">
+                            <a href="#">
+                                <div class="circle-tile-heading green">
+                                    <i class="fa fa-calendar-o fa-fw fa-3x"></i>
+                                </div>
+                            </a>
+                            <div class="circle-tile-content green">
+                                <div class="circle-tile-description text-faded">
+                                    Ver mi
+                                </div>
+                                <div class="circle-tile-number text-faded">
+                                    Horario
+                                </div>
+                                <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-6">
+                        <div class="circle-tile">
+                            <a href="#">
+                                <div class="circle-tile-heading orange">
+                                    <i class="fa fa-clock-o fa-fw fa-3x"></i>
+                                </div>
+                            </a>
+                            <div class="circle-tile-content orange">
+                                <div class="circle-tile-description text-faded">
+                                    Ver mi
+                                </div>
+                                <div class="circle-tile-number text-faded">
+                                    Asistencia
+                                </div>
+                                <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-6">
+                        <div class="circle-tile">
+                            <a href="#">
+                                <div class="circle-tile-heading blue">
+                                    <i class="fa fa-car fa-fw fa-3x"></i>
+                                </div>
+                            </a>
+                            <div class="circle-tile-content blue">
+                                <div class="circle-tile-description text-faded">
+                                    Ver mis
+                                </div>
+                                <div class="circle-tile-number text-faded">
+                                    Notas Practicas
+                                    <span id="sparklineB"></span>
+                                </div>
+                                <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-6">
+                        <div class="circle-tile">
+                            <a href="#">
+                                <div class="circle-tile-heading red">
+                                    <i class="fa fa-file-text fa-fw fa-3x"></i>
+                                </div>
+                            </a>
+                            <div class="circle-tile-content red">
+                                <div class="circle-tile-description text-faded">
+                                    Ver mis
+                                </div>
+                                <div class="circle-tile-number text-faded">
+                                    Notas Teoricas
+                                    <span id="sparklineC"></span>
+                                </div>
+                                <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+        </div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".sidebar-toggle").click(function(){
+            $(this).hide();
+            
+           $("#user-profil").show();
+            
+           $("#hide-btn").show();
+            
+           $(".container-2").css("width", "85%");
+            
+             
+        });
+        
+        $("#hide-btn").click(function(){
+            $(this).hide();
+            
+           $("#user-profil").hide();
+            
+           $(".sidebar-toggle").show();
+            
+           $(".container-2").css("width", "100%");
+            
+             
+        });
+    });
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</body>
+</html>
+

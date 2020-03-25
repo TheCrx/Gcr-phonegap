@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>Horarios Teoricos</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    <!-- js -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!--- -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.0/js/jquery.tablesorter.combined.js" integrity="sha256-AQTn9CwiNvZG2zsoT0gswugjZp0alCQySLyt9brT9Cg="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.0/js/jquery.tablesorter.js" integrity="sha256-serXvhbeEKdQIfTFSD3wpNCGNx2+/9py7VXfwLhYTfk="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.0/js/jquery.tablesorter.widgets.js" integrity="sha256-U+0DXO4scYcNVpt7pnud6Fx3KZqK2I5mI6KOeAjSqOE="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.0/css/theme.bootstrap_3.min.css"
+          integrity="sha256-dXZ9g5NdsPlD0182JqLz9UFael+Ug5AYo63RfujWPu8=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.0/css/theme.default.min.css"
+          integrity="sha256-kZJ4kB78IbXuxMtCpmaXzii8vxEKtu8pjicH62E0/qM=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.0/css/theme.bootstrap.min.css"
+          integrity="sha256-dXZ9g5NdsPlD0182JqLz9UFael+Ug5AYo63RfujWPu8=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.0/css/jquery.tablesorter.pager.min.css"
+          integrity="sha256-x+whz5gQKEXx3S3pxwmxPhC1OWpRiHaPXUW5Yt8/fzg=" crossorigin="anonymous" />
+    <script>
+        $(function() {
+            $(".table2").tablesorter({
+                theme : 'blue'
+            });
+        });
+    </script>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">GCR.exe</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="admin_panel">Home <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="/logout">Sign out</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div>
+    <h2>Ingresar Asistencia<h2/>
+</div>
+<div id="accordion"th:action="@{/mostrarhorarios}" th:object="${horarios}">
+
+    <div class="card"th:each="horario: ${horarios}">
+        <div class="card-header" th:id="'heading' + ${horario.id}">
+                <h5 class="mb-0">
+                    <button class="btn btn-outline-secondary" data-toggle="collapse" th:data-target="'#collapse' + ${horario.id}" aria-expanded="false" th:aria-controls="'heading' + ${horario.id}">
+                        <text th:text="${horario.dia.day+'-'+horario.dia.month+'-'+(horario.dia.year+1900)+' '+horario.hora.hours+':'+horario.hora.minutes}"></text>
+                    </button>
+                </h5>
+        </div>
+            <div th:id="'collapse' + ${horario.id}" class="collapse" th:aria-labelledby="'heading' + ${horario.id}" data-parent="#accordion">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table2 table table-hover" data-sortlist="[[0,0],[2,0]]">
+                            <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Rut</th>
+                                <th>Estado Asistencia</th>
+                                <th>Asistencia</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="alumno: ${horario.alumnos}">
+                                <td th:text="${alumno.nombre}"></td>
+                                <td th:text="${alumno.rut}"></td>
+                                <td th:text="${alumno.asistencia}"></td>
+                                <td><form th:action = "@{/ponerAsistente(id_horario=${horario.id},id_alumno=${alumno.id})}" method = "POST">
+                                    <button class="btn btn-secondary" type="submit" name="select">Actualizar Asistencia</button>
+                                </form></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                <div/>
+            </div>
+        </div>
+    </div>
+<div/>
+</body>
+</html>

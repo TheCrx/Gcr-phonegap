@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"\>
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="../../../../../P2/src/main/resources/static/images/icons/favicon.ico" th:href="@{/images/icons/favicon.ico}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../../../../P2/src/main/resources/static/vendor/bootstrap/css/bootstrap.min.css" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../../../../P2/src/main/resources/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css" th:href="@{/fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../../../../P2/src/main/resources/static/fonts/Linearicons-Free-v1.0.0/icon-font.min.css" th:href="@{/fonts/Linearicons-Free-v1.0.0/icon-font.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../../../../P2/src/main/resources/static/vendor/animate/animate.css" th:href="@{/vendor/animate/animate.css}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../../../../../P2/src/main/resources/static/vendor/css-hamburgers/hamburgers.min.css" th:href="@{/vendor/css-hamburgers/hamburgers.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../../../../P2/src/main/resources/static/vendor/animsition/css/animsition.min.css" th:href="@{/vendor/animsition/css/animsition.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../../../../P2/src/main/resources/static/vendor/select2/select2.min.css" th:href="@{/vendor/select2/select2.min.css}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../../../../../P2/src/main/resources/static/vendor/daterangepicker/daterangepicker.css" th:href="@{/vendor/daterangepicker/daterangepicker.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../../../../../P2/src/main/resources/static/css/util.css" th:href="@{/css/util.css}">
+	<link rel="stylesheet" type="text/css" href="../../../../../P2/src/main/resources/static/css/main.css" th:href="@{/css/main.css}">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" th:style="'background-image:url('+ @{images/bg-01.jpg} +');'">
+			<div class="wrap-login100 p-t-30 p-b-50" >
+				<span class="login100-form-title p-b-41">
+					Ingresar
+				</span>
+				<form class="login100-form validate-form p-b-33 p-t-5" th:action="@{/login}" method="post">
+
+					<div th:if="${param.logout}" class="alert alert-success" role="alert">
+						Sesión Cerrada.
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<input class="input100" type="text" name="username" placeholder="Usuario"/>
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="password" name="pass" placeholder="Contraseña"/>
+						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+					</div>
+
+					<div class="container-login100-form-btn m-t-32">
+						<button class="login100-form-btn" type="submit">
+							Entrar
+						</button>
+					</div>
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="../../../../../P2/src/main/resources/static/vendor/jquery/jquery-3.2.1.min.js" th:href="@{/vendor/jquery/jquery-3.2.1.min.js}"></script>
+<!--===============================================================================================-->
+	<script src="../../../../../P2/src/main/resources/static/vendor/animsition/js/animsition.min.js" th:href="@{/vendor/animsition/js/animsition.min.js}"></script>
+<!--===============================================================================================-->
+	<script src="../../../../../P2/src/main/resources/static/vendor/bootstrap/js/popper.js" th:href="@{/vendor/bootstrap/js/popper.js}"></script>
+	<script src="../../../../../P2/src/main/resources/static/vendor/bootstrap/js/bootstrap.min.js" th:href="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
+<!--===============================================================================================-->
+	<script src="../../../../../P2/src/main/resources/static/vendor/select2/select2.min.js" th:href="@{/vendor/select2/select2.min.js}"></script>
+<!--===============================================================================================-->
+	<script src="../../../../../P2/src/main/resources/static/vendor/daterangepicker/moment.min.js" th:href="@{/vendor/daterangepicker/moment.min.js}"></script>
+	<script src="../../../../../P2/src/main/resources/static/vendor/daterangepicker/daterangepicker.js" th:href="@{/vendor/daterangepicker/daterangepicker.js}"></script>
+<!--===============================================================================================-->
+	<script src="../../../../../P2/src/main/resources/static/vendor/countdowntime/countdowntime.js" th:href="@{/vendor/countdowntime/countdowntime.js}"></script>
+<!--===============================================================================================-->
+	<script src="../../../../../P2/src/main/resources/static/js/main.js" th:href="@{/js/main.js}"></script>
+
+</body>
+</html>

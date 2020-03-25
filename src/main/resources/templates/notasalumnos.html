@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+
+    <title>Mostrar Alumno</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    <!-- js -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!--- -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.0/js/jquery.tablesorter.combined.js" integrity="sha256-AQTn9CwiNvZG2zsoT0gswugjZp0alCQySLyt9brT9Cg="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.0/js/jquery.tablesorter.js" integrity="sha256-serXvhbeEKdQIfTFSD3wpNCGNx2+/9py7VXfwLhYTfk="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.0/js/jquery.tablesorter.widgets.js" integrity="sha256-U+0DXO4scYcNVpt7pnud6Fx3KZqK2I5mI6KOeAjSqOE="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.0/css/theme.bootstrap_3.min.css"
+          integrity="sha256-dXZ9g5NdsPlD0182JqLz9UFael+Ug5AYo63RfujWPu8=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.0/css/theme.default.min.css"
+          integrity="sha256-kZJ4kB78IbXuxMtCpmaXzii8vxEKtu8pjicH62E0/qM=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.0/css/theme.bootstrap.min.css"
+          integrity="sha256-dXZ9g5NdsPlD0182JqLz9UFael+Ug5AYo63RfujWPu8=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.0/css/jquery.tablesorter.pager.min.css"
+          integrity="sha256-x+whz5gQKEXx3S3pxwmxPhC1OWpRiHaPXUW5Yt8/fzg=" crossorigin="anonymous" />
+    <script>
+        $(function() {
+            $(".table2").tablesorter({
+                theme : 'blue'
+            });
+        });
+    </script>
+
+    <script>
+        function viewHide(id)
+        {
+            var targetId, srcElement, targetElement;
+            var targetElement = document.getElementById(id);
+            if (targetElement.style.display == "none") {
+                targetElement.style.display = "";
+            } else {
+                targetElement.style.display = "none";
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">GCR.exe</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="admin_panel">Home <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="/logout">Sign out</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!------------------------------------>
+<br>
+<div class="btn-group btn-group-toggle " data-toggle="buttons">
+    <label class="btn btn-secondary active btn-lg">
+        <input Onclick="viewHide('tabla1')" value="B" type="radio" name="options" id="option1" autocomplete="off" checked> Teorica
+    </label>
+    <label class="btn btn-secondary btn-lg">
+        <input Onclick="viewHide('tabla2')" value="B" type="radio" name="options" id="option2" autocomplete="off"> Practica
+    </label>
+</div>
+<table id=tabla1 style="display:none" class="table2 table table-hover" data-sortlist="[[0,0],[2,0]]">
+    <thead class="thead-dark">
+    <tr>
+        <th>Nombre</th>
+        <th>Rut</th>
+        <th>Asistencia</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Teorica</td>
+        <td>666 666 666</td>
+        <td>41000</td>
+    </tr>
+    <tr>
+        <td>Indiana</td>
+        <td>666 777 777</td>
+        <td>80000</td>
+    </tr>
+    <tr>
+        <td>Willy</td>
+        <td>666 955 955</td>
+        <td>94000</td>
+    </tr>
+    <tr>
+        <td>Alejandra Gonzalez</td>
+        <td>666 955 955</td>
+        <td>94000</td>
+    </tr>
+    </tbody>
+</table>
+<table id=tabla2 style="display:none" class="table2 table table-hover" data-sortlist="[[0,0],[2,0]]">
+    <thead class="thead-light">
+    <tr>
+        <th>Nombre</th>
+        <th>Rut</th>
+        <th>Asistencia</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Practica</td>
+        <td>666 666 666</td>
+        <td>41000</td>
+    </tr>
+    <tr>
+        <td>Indiana</td>
+        <td>666 777 777</td>
+        <td>80000</td>
+    </tr>
+    <tr>
+        <td>Willy</td>
+        <td>666 955 955</td>
+        <td>94000</td>
+    </tr>
+    <tr>
+        <td>Alejandra Gonzalez</td>
+        <td>666 955 955</td>
+        <td>94000</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
